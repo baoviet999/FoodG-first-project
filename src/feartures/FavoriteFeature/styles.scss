@@ -1,0 +1,39 @@
+.favorite-feature{
+    width: 25%;
+    height: 300px;
+    background-color: #fff;
+    position: fixed;
+    right: 4%;
+    bottom: 30%;
+    z-index: 1020;border-radius :3px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 15%);
+    &__header{
+        display: flex;
+        align-items :center;
+        justify-content :space-between;
+        height: 43px;
+        background-color: #434655;
+        padding : 0 10px;
+        
+        &-left{
+            display: flex;
+            align-items :center;
+            font-size: 11px;
+            svg{
+                width: 20px;
+                height: 20px;
+                fill : #fff;
+                margin-right: 5px;
+            }
+        }
+        &-right{
+            display: flex;
+            align-items :center;
+        }
+    }
+    &__product{
+        padding : 10px 15px;
+        overflow-y: auto;
+        height: 85%;
+    }
+}

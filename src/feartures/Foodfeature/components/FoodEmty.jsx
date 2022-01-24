@@ -6,11 +6,11 @@ FoodEmty.propTypes = {
     
 };
 
-function FoodEmty(props) {
+function FoodEmty({width, fz, content}) {
     return (
         <div className="food-emty__wrapper">
-            <img src={emtyImg} alt="" />
-            <h3>No Product you're looking for!!!</h3>
+            <img src={emtyImg} width={width} alt="" />
+            <h3 style={{ fontSize: `${fz}` }}>{content }</h3>
         </div>
     );
 }

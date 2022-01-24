@@ -33,25 +33,24 @@
         color: #000;
     }
     &__price {
-        color :#000;
-        strong{
-         font-weight: 700;
-        font-size: 17px;
-        margin-right: 5px;
-        color: #ff514e;   
-        min-width: 20px;
+        color: #000;
+        strong {
+            font-weight: 700;
+            font-size: 17px;
+            margin-right: 5px;
+            color: #ff514e;
+            min-width: 20px;
         }
-        span{
+        span {
             font-size: 15px;
             font-weight: 600;
-            color :#000
+            color: #000;
         }
-        
     }
-    &__delete{
-        &:hover{
-            svg{
-                fill :#ff514e
+    &__delete {
+        &:hover {
+            svg {
+                fill: #ff514e;
             }
         }
     }

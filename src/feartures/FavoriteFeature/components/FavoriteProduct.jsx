@@ -1,14 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
-import "./CartProduct.scss";
+import "./FavoriteProduct.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import DeleteSweepOutlinedIcon from "@material-ui/icons/DeleteSweepOutlined";
 import { IconButton } from "@material-ui/core";
-import { removeFromCart } from "../../Foodfeature/foodSlice";
+import { removeFromCart, removeFromFavorite } from "../../Foodfeature/foodSlice";
 import { useDispatch } from "react-redux";
-CartProduct.propTypes = {};
+FavoriteProduct.propTypes = {};
 
-function CartProduct({ product = [] , quantity}) {
+function FavoriteProduct({ product = [] }) {
     const dispatch = useDispatch();
     return (
         <div className="cart-product__wrapper">
@@ -26,12 +25,11 @@ function CartProduct({ product = [] , quantity}) {
                 <div className="cart-product__detail">
                     <div className="cart-product__name">{product.name}</div>
                     <div className="cart-product__price">
-                        <strong>${product.price}</strong>×
-                        <span>{quantity }</span>
+                        <strong>${product.price}</strong>
                     </div>
                 </div>
             </div>
-            <div className="cart-product__delete" onClick={() => dispatch(removeFromCart(product.id))}>
+            <div className="cart-product__delete" onClick={() => dispatch(removeFromFavorite(product.id))}>
                 <IconButton>
                     <DeleteSweepOutlinedIcon />
                 </IconButton>
@@ -40,4 +38,4 @@ function CartProduct({ product = [] , quantity}) {
     );
 }
 
-export default CartProduct;
+export default FavoriteProduct;

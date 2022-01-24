@@ -18,7 +18,7 @@ import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import { useSnackbar } from "notistack";
 
 import logo from "../../assets/svg/logo.svg";
-import { openCart } from "../../feartures/Foodfeature/foodSlice";
+import { openCart, openFavorite } from "../../feartures/Foodfeature/foodSlice";
 import { cartItemCountSelector } from "../../feartures/Foodfeature/selector";
 import { logout } from "../../Pages/Login/userSlice";
 
@@ -122,7 +122,7 @@ function Header(props) {
                                                 <AssignmentIndIcon />
                                                 <span>My account</span>
                                             </li>
-                                            <li className="navbar__user--logout-option">
+                                            <li className="navbar__user--logout-option" onClick={()=> dispatch(openFavorite())}>
                                                 <LoyaltyIcon />
                                                 <span>My wishlist</span>
                                             </li>

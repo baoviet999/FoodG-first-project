@@ -14,7 +14,7 @@ import { useSnackbar } from "notistack";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 //action redux
-import { addToCart } from "../../feartures/Foodfeature/foodSlice";
+import { addToCart, addToFavortite } from "../../feartures/Foodfeature/foodSlice";
 //Context
 import { GridContext } from "../../feartures/Foodfeature/GridContext";
 //Scss
@@ -50,6 +50,18 @@ function Product({ food = {}, type = "" }) {
             autoHideDuration: 3000,
         });
     };
+    //add vao favorite
+    const handleFavorite = (e) => {
+        e.stopPropagation()
+        dispatch(addToFavortite({
+            id: food.id,
+            foodProduct :food
+        }))
+         enqueueSnackbar(`[${food.name}] has been added to wish list`, {
+             variant: "success",
+             autoHideDuration: 3000,
+         });
+    }
     return (
         <div className={`food-product ${style.style}`} onClick={handleClick}>
             <div className="food-product__img-wrap">
@@ -69,7 +81,7 @@ function Product({ food = {}, type = "" }) {
                     <span>favourite</span>
                 </div>
                 <div className="food-product__options">
-                    <div className="food-product__option food-product__like">
+                    <div className="food-product__option food-product__like" onClick={handleFavorite}>
                         <FavoriteBorderOutlinedIcon />
                     </div>
                     <div className="food-product__option food-product__addtocart" onClick={handleClickAdd}>

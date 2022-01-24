@@ -50,14 +50,14 @@ function CartFeature(props) {
                         <div className="cart__pays-btn">
                             <Button>
                                 <ShoppingCartOutlinedIcon />
-                                <span>addd</span>
+                                <span>CheckOut</span>
                             </Button>
                         </div>
                         <div className="cart__pays-btn active" onClick={() => dispatch(closeCart())}>
                             <Link to="/order">
                                 <Button>
                                     <StorefrontOutlinedIcon />
-                                    <span>Buy More</span>
+                                    <span>BuyMore</span>
                                 </Button>
                             </Link>
                         </div>

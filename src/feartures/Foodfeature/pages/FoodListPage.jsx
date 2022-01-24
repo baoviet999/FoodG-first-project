@@ -131,7 +131,7 @@ function FoodListPage(props) {
                                     </div>
                                 </>
                             ) : (
-                                <FoodEmty />
+                                    <FoodEmty width={'500px'} fz={'25px'} content={ `No product you're looking for`}/>
                             )}
                         </Grid>
                     </Grid>

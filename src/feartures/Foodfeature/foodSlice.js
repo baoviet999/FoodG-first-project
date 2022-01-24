@@ -8,6 +8,7 @@ const foodSlice = createSlice({
         cartItems: [],
         favoriteItem: [],
         openCart: false,
+        openFavorite: false,
     },
     reducers: {
         increateCount(state) {
@@ -43,6 +44,25 @@ const foodSlice = createSlice({
         closeCart(state) {
             state.openCart = false;
         },
+        addToFavortite(state, action) {
+            const newFavorite = action.payload;
+            console.log(newFavorite);
+            const hasFavorite = state.favoriteItem.findIndex((x) => x.id === newFavorite.id);
+            if (hasFavorite < 0) {
+                state.favoriteItem.push(newFavorite);
+            }
+        },
+        removeFromFavorite(state, action) {
+            const itemDelete = action.payload;
+            const indexDelete = state.favoriteItem.findIndex((x) => x.id === itemDelete);
+            state.favoriteItem.splice(indexDelete, 1);
+        },
+        openFavorite(state) {
+            state.openFavorite = true;
+        },
+        closeFavorite(state) {
+            state.openFavorite = false;
+        },
     },
 });
 const { actions, reducer } = foodSlice;
@@ -56,4 +76,8 @@ export const {
     removeFromCart,
     openCart,
     closeCart,
+    addToFavortite,
+    openFavorite,
+    closeFavorite,
+    removeFromFavorite,
 } = actions;

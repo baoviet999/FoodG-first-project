@@ -28,7 +28,7 @@ import foodApi from "../../../Api/foodApi";
 import DetailBanner from "../../../components/DetailBanner";
 import LoginDiaLog from "../../../components/LoginDialog";
 import CartFeature from "../../CartFeature";
-import { addToCart, changeCount, decreaseCount, increateCount } from "../foodSlice";
+import { addToCart, changeCount, decreaseCount, increateCount, addToFavortite } from "../foodSlice";
 import "./DetailPage.scss";
 
 
@@ -108,6 +108,21 @@ function DetailPage(props) {
         setLogin(isCancel)
     }
     const openCart = useSelector((state) => state.food.openCart);
+    //add to favourite
+    const handleFavorite = () => {
+        dispatch(
+            addToFavortite({
+                id: foodProduct.id,
+                foodProduct,
+            })
+        );
+        enqueueSnackbar(`[${foodProduct.name}] has been added to wish list`, {
+            variant: "success",
+            autoHideDuration: 3000,
+        });
+    }
+
+
     return (
         <>
             {openCart && <CartFeature />}
@@ -239,7 +254,7 @@ function DetailPage(props) {
                                                 ADD TO CART
                                             </Button>
                                         </div>
-                                        <div className="detail-content__addtocart--like">
+                                        <div className="detail-content__addtocart--like" onClick={handleFavorite}>
                                             <IconButton>
                                                 <FavoriteBorderIcon />
                                             </IconButton>
