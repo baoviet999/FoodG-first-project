@@ -1,0 +1,15 @@
+.price-filter {
+    &__wrapper {
+        label {
+            padding: 0 12px;
+        }
+        span {
+            font-size: 14px;
+            text-transform: capitalize;
+            color: #000;
+        }
+        svg {
+            fill :#ff514e
+        }
+    }
+}

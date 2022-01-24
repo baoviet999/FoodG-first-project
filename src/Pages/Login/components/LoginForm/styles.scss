@@ -1,0 +1,54 @@
+@use "../../../../scss/" as *;
+.login {
+    &__form {
+        width: 1200px !important;
+        height: 600px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: rgb(0 0 0 / 7%) 0px 4px 25px;
+    }
+    &__container {
+        padding: 40px 80px 40px 40px;
+    }
+}
+.form-login {
+    margin-bottom: 15px;
+
+    &__commit {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    &__commit-checkbox svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &__commit-msg {
+        margin-left: 3px;
+    }
+
+    &__btn {
+        display: block;
+        margin: 0 auto;
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 10px 25px;
+        outline: none;
+        border: none;
+        background-color: $primary-color;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        &:hover {
+            box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%),
+                0px 1px 5px 0px rgb(0 0 0 / 12%);
+        }
+    }
+}

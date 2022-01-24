@@ -1,0 +1,45 @@
+.food-product {
+    &__container {
+        padding: 20px 0px 20px 20px;
+    }
+    &__pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        li {
+            width: 43px !important;
+            margin: 0 6px;
+            //
+            background-color: transparent !important;
+        }
+        button {
+            width: 100% !important;
+            background-color: #fff;
+            border-radius: 8px !important;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 15%);
+        }
+    }
+    &__feature{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+}
+.MuiPaginationItem-page.Mui-selected {
+    background-color: #ff514e !important;
+    color: #fff !important;
+}
+
+.food-filter {
+    &__title {
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            padding: 8px 0 8px 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            color :#000
+        }
+    }
+}

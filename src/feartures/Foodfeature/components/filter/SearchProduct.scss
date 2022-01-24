@@ -1,0 +1,32 @@
+.search-product {
+    &__input-wrap {
+        width: 65%;
+        display: flex;
+        align-items: center;
+        align-items: center;
+        border-radius: 20px;
+        padding: 5px 10px 5px 15px;
+        margin-left: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.15);height: 43px;
+        input {
+            line-height: 20px;
+            flex :1;
+            outline: none;
+            border: none;
+            &::placeholder{
+                // font-size: 20px;
+                // font-weight: 500;
+            }
+        }
+    }
+    &__input-icon{
+        width: 32px;
+        height: 20px;
+        svg{
+            fill :#ccc
+        }
+        &:hover > svg{
+            fill :#ff514e
+        }
+    }
+}

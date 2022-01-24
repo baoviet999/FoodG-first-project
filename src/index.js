@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
+import Slide from "@material-ui/core/Slide";
+import Snackbar from "./components/Snackbar";
+import { Provider } from "react-redux";
+import store from "./App/store";
+import {GridProvider} from './feartures/Foodfeature/GridContext'
+// import "swiper/css/bundle";
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <GridProvider>
+            <Provider store={store}>
+                <Snackbar>
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                </Snackbar>
+            </Provider>
+        </GridProvider>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

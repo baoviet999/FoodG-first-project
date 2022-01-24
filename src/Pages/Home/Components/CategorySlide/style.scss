@@ -1,0 +1,85 @@
+@use "../../../../scss/" as *;
+.category {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+    margin: 100px auto;
+    padding: 70px;
+    &__title {
+        text-align: center;
+        color: #fbb403;
+        font-size: 15px;
+    }
+    &__menu {
+        text-align: center;
+        font-size: 30px;
+        margin-top: 5px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.84);
+        margin-bottom: 20px;
+    }
+    &__cart {
+        position: relative;
+        
+    }
+    &__thumbnail {
+        width: 120px;
+        height: 120px;
+        box-shadow: 0 1px 12px rgb(0 0 0 / 5%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        & > img {
+            height: 50%;
+        }
+        &:hover{
+            box-shadow: 0 5px 12px rgb(0 0 0 / 10%);
+            ~ .category__name{
+                color : $primary-color;
+            }
+        }
+    }
+    &__name{
+        color: #000;
+        margin: 10px 0;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+    &__btn {
+        display: inline;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        z-index: 997;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 13px rgb(0 0 0 / 8%);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        cursor : pointer;
+        &:hover{
+            background-color: $primary-color;
+            & >svg{
+                fill :#fff
+            }
+        }
+        & > svg{
+            fill : #000;
+            height: 15px;
+        }
+        &--left {
+            left: -7%;
+            top: 45%;
+            transform: translateY(-50%) rotate(180deg);
+        }
+        &--right {
+            right: -7%;
+            top: 45%;
+            transform: translateY(-50%);
+        }
+    }
+}

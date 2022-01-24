@@ -1,0 +1,135 @@
+.cart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1020;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &__wrapper {
+        width: 30%;
+        height: 100%;
+        background-color: #fff;
+        position: relative;
+        animation: 0.3s cartAni ease;
+    }
+    &__banner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+        span {
+            font-size: 23px;
+            color: #000000;
+            font-weight: 600;
+        }
+    }
+    &__close-icon {
+        width: 40px;
+        height: 40px;
+        button {
+            width: 100%;
+            height: 100%;
+            svg {
+                width: 34px;
+                height: 100%;
+            }
+        }
+    }
+    &__items {
+        padding: 15px;
+    }
+    &__pays {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 130px;
+        background: #fff;
+        padding:30px 10px 10px 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 -5px 15px rgb(0 0 0 / 5%);
+        &-total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding : 0 15px;
+            span{
+                font-size: 18px;
+                font-weight: 700;
+            }
+            strong{
+                font-size: 20px;
+            }
+        }
+        &-btns {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        &-btn {
+            min-width: 45%;
+            button {
+                width: 100%;
+                height: 40px;
+                border-radius: 30px !important;
+                background-color: #ff514e;
+                color: #fff;
+                font-size: 11px;
+                box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 6px 0px;
+                &:hover{
+                    background-color: #c33d3b!important;
+                    box-shadow: 0 5px 13px rgba(0,0,0,.25)!important;
+                }
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 3px;
+                }
+            }
+        }
+        &-btn.active {
+            button {
+                background-color: #fff;
+                color: #000;
+                &:hover{
+                    background-color: #fff!important;
+                    box-shadow: 0 5px 13px rgba(0,0,0,.25)!important;
+                }
+            }
+        }
+    }
+    &__emty{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 200px;
+        img{
+            height: 25%;
+        }
+        &-title{
+            color :#000;
+            font-size: 25px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+    }
+}
+@keyframes cartAni {
+    from{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,16 @@
+.food-product {
+    &__progress {
+        width: 60px;
+        height: 60px;
+    }
+    .food-product__progress-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.MuiContainer-root.food-product__progress-wrapper.MuiContainer-maxWidthLg {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}

@@ -1,0 +1,38 @@
+.detail{
+    &__banner{
+        width: 100%;
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        &-title{
+            font-size: 16px;
+
+        }
+        &-linear{
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            margin-top: 5px;
+            span{
+                margin-right: 10px;
+                transition: all 0.3s ease;
+                &:last-child{
+                    color :#ff514e 
+                }
+                &:hover{
+                   color :#ff514e ;
+                   cursor: pointer;
+                }
+            }
+            svg{
+                margin-right: 10px;
+                width: 15px;
+            }
+        }
+    }
+}

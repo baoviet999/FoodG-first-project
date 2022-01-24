@@ -1,0 +1,17 @@
+.star-filter {
+    &__wrapper {
+        padding: 0 12px;
+        svg {
+            fill: #fbb403;
+            width: 22px;
+            height: 22px;
+            margin-right: 3px;
+        }
+    }
+    &__start {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+}
+
