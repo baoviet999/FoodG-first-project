@@ -5,7 +5,9 @@ const rootReducer = {
     user: userReducer,
     food: countReducer
 }
+
 const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+            
 })
 export default store

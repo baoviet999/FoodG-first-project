@@ -36,6 +36,9 @@
         align-items: center;
         justify-content: space-between;
         height: 70px;
+        @include respond(tablet) {
+            padding : 0 20px
+        }
     }
     &--left {
         display: flex;
@@ -44,6 +47,9 @@
     &__list {
         display: flex;
         align-items: flex-end;
+        @include respond (mobile){
+            display: none;
+        }
         li {
             display: flex;
             align-items: center;

@@ -8,13 +8,6 @@
 }
 html {
     font-size: 100%;
-
-    @include tablet{
-      font-size: 80%;
-    }
-    @include mobile {
-        font-size: 60%;
-    }
 }
 body {
     font-family: $font-family;
@@ -22,9 +15,8 @@ body {
     line-height: 1.5;
     background-color: #fff;
     color: $txt-color;
-    @include mobile {
-        margin-bottom: 3rem;
-    };
+    width: 100%;
+    
 }
 a {
     text-decoration: none;
@@ -52,4 +44,20 @@ img {
 .container {
     max-width: 1150px;
     margin:0 auto;
+}
+
+
+::-webkit-scrollbar {
+  width: 13px;
+  background-color: $scrollbar-background-color;
+}
+::-webkit-scrollbar-track {
+  margin: 3px 0;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  background-color: $scrollbar-color;
+  background-clip: content-box;
 }

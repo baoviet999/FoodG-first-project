@@ -30,7 +30,8 @@ import LoginDiaLog from "../../../components/LoginDialog";
 import CartFeature from "../../CartFeature";
 import { addToCart, changeCount, decreaseCount, increateCount, addToFavortite } from "../foodSlice";
 import "./DetailPage.scss";
-
+import Footer from "../../../components/Footer";
+import FavoriteFeature from '../../FavoriteFeature'
 
 function DetailPage(props) {
     const location = useLocation();
@@ -122,9 +123,10 @@ function DetailPage(props) {
         });
     }
 
-
+    const openFavorite = useSelector((state) => state.food.openFavorite);
     return (
         <>
+            {openFavorite && <FavoriteFeature />}
             {openCart && <CartFeature />}
             <DetailBanner />
             <div className="detail__wrap container">
@@ -254,7 +256,10 @@ function DetailPage(props) {
                                                 ADD TO CART
                                             </Button>
                                         </div>
-                                        <div className="detail-content__addtocart--like" onClick={handleFavorite}>
+                                        <div
+                                            className="detail-content__addtocart--like"
+                                            onClick={handleFavorite}
+                                        >
                                             <IconButton>
                                                 <FavoriteBorderIcon />
                                             </IconButton>
@@ -266,6 +271,7 @@ function DetailPage(props) {
                     </Grid>
                 </Container>
             </div>
+            <Footer />
         </>
     );
 }

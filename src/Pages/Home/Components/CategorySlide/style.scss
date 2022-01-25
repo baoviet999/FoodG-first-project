@@ -1,11 +1,16 @@
 @use "../../../../scss/" as *;
+
 .category {
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
     margin: 100px auto;
     padding: 70px;
+    @include respond(tablet) {
+        padding : 70px 30px;
+        margin : 70px auto;
+    }
     &__title {
         text-align: center;
-        color: #fbb403;
+        color: $primary-color;
         font-size: 15px;
     }
     &__menu {
@@ -13,7 +18,7 @@
         font-size: 30px;
         margin-top: 5px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 0.84);
+        color: $primary-black-color;
         margin-bottom: 20px;
     }
     &__cart {
@@ -75,11 +80,17 @@
             left: -7%;
             top: 45%;
             transform: translateY(-50%) rotate(180deg);
+            @include respond(tablet) {
+                left: -20px;
+            }
         }
         &--right {
             right: -7%;
             top: 45%;
             transform: translateY(-50%);
+            @include respond(tablet) {
+                right: -20px;
+            }
         }
     }
 }

@@ -77,6 +77,7 @@ function Header(props) {
 
     return (
         <>
+                      
             {header && (
                 <div ref={headerRef} className="navbar">
                     <div className="navbar__wrap container">

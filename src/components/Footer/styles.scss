@@ -1,0 +1,110 @@
+@use '../../scss/' as * ;
+.footer {
+    &--left {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include respond(tablet) {
+            margin-bottom: 40px;
+        }
+        @include respond(mobile){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    padding: 90px 0 80px;
+    background-color: rgba(0, 0, 0, 0.87);
+
+    &-container {
+        @include respond(tablet) {
+            padding: 0 30px;
+        }
+    }
+    &__days {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+        &-container {
+        
+    }
+    }
+    &-days__wrapper {
+        width: 60%;
+        @include respond(mobile) {
+            width: 100%;
+        }
+    }
+    &__day {
+        width: 120px;
+        color: #fff;
+        font-size: 17px;
+        margin-bottom: 7px;
+        &-status {
+            width: 100px;
+            color: #fbb403;
+            font-weight: 500;
+        }
+    }
+    &__address-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        @include respond(mobile){
+            width: 100%;
+            margin-top: 20px;
+        }
+        h3 {
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+    &__address {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+        &:hover {
+            color: #fbb403;
+            cursor: pointer;
+        }
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: #fbb403;
+            margin-right: 10px;
+        }
+        &-icon {
+            svg {
+                margin-right: 10px;
+            }
+            > svg:nth-child(1) {
+                fill: rgb(255, 0, 0);
+            }
+            > svg:nth-child(2) {
+                fill: rgb(45, 136, 255);
+            }
+            > svg:nth-child(3) {
+                fill: rgb(93, 169, 221);
+            }
+            > svg:nth-child(4) {
+                fill: rgb(245, 96, 64);
+            }
+        }
+    }
+    &__map {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        @include respond(tablet) {
+           width: 100%;
+        }
+    }
+}

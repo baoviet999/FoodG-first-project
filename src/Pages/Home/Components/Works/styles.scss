@@ -5,6 +5,12 @@
     align-items: center;
     margin : 100px auto;
     padding-left: 50px;
+    @include respond(tablet) {
+        padding-left: 0;
+    }
+    @include respond(mobile) {
+        margin-top: 180px;
+    }
     &__container{
         display: flex;
         flex-direction: column;
@@ -26,12 +32,19 @@
         align-items: center;
         margin-top: 40px;
         position: relative;
+        @include respond(tablet) {
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
     }
     &__arrow{
         position: absolute;
         top: 50%;
         right : 0;
-        transform: translateY(-50%)
+        transform: translateY(-50%);
+        @include respond(tablet){
+            display: none;
+        }
     }
     &__thumbnail{
         width: 190px;

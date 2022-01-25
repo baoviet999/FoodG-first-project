@@ -10,6 +10,7 @@
         bottom: 0;
         width: 100%;
         height: 100vh;
+
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -17,21 +18,42 @@
         align-items: center;
         justify-content: flex-start;
         overflow: hidden;
+        @include respond(tablet) {
+            height: 50vh;
+            justify-content: center;
+        }
+        @include respond(mobile) {
+            height: 70vh;
+            justify-content: center;
+        }
     }
 
     &__wrap {
         width: 100%;
         height: 100vh;
+        @include respond(tablet) {
+            height: 50vh;
+        }
     }
     &__content {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-116%, -50%);
+        @include respond(tablet) {
+            transform: translate(-50%, -50%);
+        }
+        @include respond(mobile) {
+            width: 100%;
+        }
         &-wrap {
             display: flex;
             align-items: flex-start;
             flex-direction: column;
+            @include respond(tablet) {
+                align-items: center;
+                justify-content: center
+            }
         }
     }
     &__title {
@@ -55,6 +77,10 @@
         transform: translateX(35%);
         transition: all 0.5s ease;
         transition-delay: 0.6s;
+        @include respond(tablet){
+            font-size: 50px;
+            text-align: center;
+        }
     }
     &__subdesc {
         color: $primary-color;
@@ -80,7 +106,10 @@
     transition: all 0.5s ease;
     transition-delay: 1.3s;
     opacity: 0;
-    cursor :pointer;
+    @include respond(tablet) {
+        margin : 0 auto;
+    }
+    cursor: pointer;
     & > svg {
         width: 20px;
         height: 20px;

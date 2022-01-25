@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux';
 
 import BannerSilde from '../../components/BannerSilde';
 import ButtonToTop from '../../components/Button';
+import Footer from '../../components/Footer';
 import CartFeature from '../../feartures/CartFeature';
 import FavoriteFeature from '../../feartures/FavoriteFeature';
 import FoodListPage from '../../feartures/Foodfeature/pages/FoodListPage';
 import CategorySlice from './Components/CategorySlide';
+import UserPreview from './Components/UserPreview';
 import Works from './Components/Works';
 
 function Home(props) {
@@ -22,6 +24,8 @@ function Home(props) {
             <Works />
             <CategorySlice />
             <FoodListPage />
+            <UserPreview />
+            <Footer/>
         </div>
     );
 }
