@@ -23,7 +23,7 @@ function BannerSilde(props) {
                 navigation
                 pagination={{ clickable: true }}
                 grabCursor={true}
-                // autoplay={{ delay: 3000 }}
+                autoplay={{ delay: 3000 }}
                 loop={true}
                 effect="coverflow"
             >

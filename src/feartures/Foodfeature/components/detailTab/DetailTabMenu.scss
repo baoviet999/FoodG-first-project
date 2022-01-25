@@ -1,0 +1,26 @@
+@use '../../../../scss/' as *;
+.detail{
+    &__tabs{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 45px;
+    }
+    &__tab{
+        margin-right: 10px;min-width: 13%;
+        button{
+            border-radius: 10px;
+            background-color: #fff; 
+            padding : 10px 10px;
+            width: 100%;
+            color :#000;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease
+        }
+        &.active button{
+            background-color: $primary-color; 
+            color :#fff
+        }
+    }
+}

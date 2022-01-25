@@ -33,6 +33,7 @@ function Product({ food = {}, type = "" }) {
     //sang trang detail
     const handleClick = () => {
         history.push(`/detail${type}/${food.id}`);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
     const { enqueueSnackbar } = useSnackbar();
     //Add sản phẩm vào redux

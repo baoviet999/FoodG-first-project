@@ -46,7 +46,7 @@ function Footer(props) {
                         <div className="footer--left">
                             <div className="footer-days__wrapper">
                                 {times.map((day, index) => (
-                                    <div className="footer__days">
+                                    <div key={index} className="footer__days">
                                         <div className="footer__day">{day.day}</div>
                                         <LinearScaleIcon />
                                         <div className="footer__day-status">{day.status}</div>
@@ -81,7 +81,7 @@ function Footer(props) {
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d72694.99242309002!2d108.40156575830369!3d11.88981955189315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317112fef20988b1%3A0xad5f228b672bf930!2zRGFsYXQsIEzDom0gxJDhu5NuZywgVmlldG5hbQ!5e0!3m2!1sen!2sus!4v1643080511988!5m2!1sen!2sus"
                                 style={{ border: 0, width: "100%", height: "100%" }}
-                                allowfullscreen=""
+                                allowFullScreen
                                 loading="lazy"
                                 title="map"
                             ></iframe>

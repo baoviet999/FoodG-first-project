@@ -1,0 +1,62 @@
+@use '../../../../scss/' as * ;
+.related-products{
+    position: relative;
+    margin-top: 80px;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 8%);
+    padding : 20px;
+    @include respond(mobile){
+        padding: 0;
+    }
+    &__title{
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        span{
+            color :$primary-yellow-color;
+            font-size: 18px;
+        }
+        strong{
+            color : $primary-black-color;
+            font-size: 30px;
+            font-weight: 600;
+        }
+    }
+}
+.related__btn{
+    width: 35px;
+    height: 35px;
+    background-color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 13px rgb(0 0 0 / 8%);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position :absolute;
+    @include respond(mobile){
+        display: none;
+    }
+    &:hover{
+        svg{
+            fill :$primary-color;
+        }
+        background-color: #fff
+    }
+    svg{
+        width: 20px;
+        height: 30px;
+        fill : #fff;
+    }
+    &--left{
+        transform: rotate(-180deg);
+        left: -2%;
+        bottom: 43%;
+    }
+    &--right{
+        right: -2%;
+        bottom: 43%;
+    }
+}

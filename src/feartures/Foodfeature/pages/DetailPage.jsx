@@ -1,7 +1,7 @@
 //react
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useRouteMatch } from "react-router-dom";
+import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
 //material ui
 import {
     Container,
@@ -10,8 +10,9 @@ import {
     FormLabel,
     Grid,
     Radio,
-    RadioGroup
+    RadioGroup,
 } from "@material-ui/core";
+import RemoveIcon from "@material-ui/icons/Remove";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import AddIcon from "@material-ui/icons/Add";
@@ -19,6 +20,9 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarOutlineRoundedIcon from "@material-ui/icons/StarOutlineRounded";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
+import LocalShippingOutlinedIcon from "@material-ui/icons/LocalShippingOutlined";
+import AssignmentTurnedInOutlinedIcon from "@material-ui/icons/AssignmentTurnedInOutlined";
+import LocalOfferOutlinedIcon from "@material-ui/icons/LocalOfferOutlined";
 //Snackbar
 import { useSnackbar } from "notistack";
 //LazyLoading
@@ -31,7 +35,12 @@ import CartFeature from "../../CartFeature";
 import { addToCart, changeCount, decreaseCount, increateCount, addToFavortite } from "../foodSlice";
 import "./DetailPage.scss";
 import Footer from "../../../components/Footer";
-import FavoriteFeature from '../../FavoriteFeature'
+import FavoriteFeature from "../../FavoriteFeature";
+import DetailTabMenu from "../components/detailTab/DetailTabMenu";
+import CommentTab from "../components/detailTab/CommentTab";
+import DescriptionTab from "../components/detailTab/DescriptionTab";
+import { useHistory } from "react-router-dom";
+import RelatedProducts from "../components/detailTab/RelatedProducts";
 
 function DetailPage(props) {
     const location = useLocation();
@@ -72,8 +81,10 @@ function DetailPage(props) {
     }, [count]);
 
     const math = useRouteMatch();
+    const url = math.url
     const foodId = math.params.foodId;
     const foodidRef = useRef();
+    
     // nếu 2 id sản phẩm khác nhau thì rết lại count
     useEffect(() => {
         foodidRef.current = foodId;
@@ -84,7 +95,7 @@ function DetailPage(props) {
     //Check user login chưa
     const userLogin = useSelector((state) => state.user.current);
     const isLogin = !!userLogin.displayName;
-    const [login, setLogin] = useState(false)
+    const [login, setLogin] = useState(false);
     //đưa sản phẩm lên redux
     const { enqueueSnackbar } = useSnackbar();
     const handleAddToCart = () => {
@@ -102,12 +113,12 @@ function DetailPage(props) {
                 autoHideDuration: 3000,
             });
         } else {
-            setLogin(prev => !prev)
+            setLogin((prev) => !prev);
         }
     };
     const handleCancel = (isCancel) => {
-        setLogin(isCancel)
-    }
+        setLogin(isCancel);
+    };
     const openCart = useSelector((state) => state.food.openCart);
     //add to favourite
     const handleFavorite = () => {
@@ -121,8 +132,9 @@ function DetailPage(props) {
             variant: "success",
             autoHideDuration: 3000,
         });
-    }
-
+    };
+    
+    
     const openFavorite = useSelector((state) => state.food.openFavorite);
     return (
         <>
@@ -231,8 +243,8 @@ function DetailPage(props) {
                                                 className="detail-content__addtocart-count--btn"
                                                 onClick={handleDecreateCount}
                                             >
-                                                <IconButton>
-                                                    <AddIcon />
+                                                <IconButton disableRipple={!!(count <= 1)}>
+                                                    <RemoveIcon />
                                                 </IconButton>
                                             </div>
                                             <span className="detail-content__addtocart-count--num">
@@ -265,11 +277,38 @@ function DetailPage(props) {
                                             </IconButton>
                                         </div>
                                     </div>
+                                    <div className="detail-content__ship">
+                                        <div className="detail-content__ship-option">
+                                            <LocalShippingOutlinedIcon />
+                                            <span>Free global shipping on all orders</span>
+                                        </div>
+                                        <div className="detail-content__ship-option">
+                                            <AssignmentTurnedInOutlinedIcon />
+                                            <span>2 hours easy returns if you change your mind</span>
+                                        </div>
+                                        <div className="detail-content__ship-option">
+                                            <LocalOfferOutlinedIcon />
+                                            <span>Order before noon for same day dispatch</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </Grid>
                     </Grid>
                 </Container>
+                <div className="detail-content__tab">
+                    <DetailTabMenu />
+                </div>
+                <Switch>
+                    <Route path={`${url}/comment`}>
+                        <CommentTab />
+                    </Route>
+                    <Route exact path={`${url}`}>
+                        <DescriptionTab />
+                    </Route>
+                </Switch>
+                
+                <RelatedProducts/>
             </div>
             <Footer />
         </>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import Product from '../../../components/Product';
 import { GridContext } from '../GridContext';
+
 import './productList.scss';
 ProductList.propTypes = {
     foodList : PropTypes.array
