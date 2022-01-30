@@ -1,7 +1,4 @@
 //react
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
 //material ui
 import {
     Container,
@@ -10,37 +7,40 @@ import {
     FormLabel,
     Grid,
     Radio,
-    RadioGroup,
+    RadioGroup
 } from "@material-ui/core";
-import RemoveIcon from "@material-ui/icons/Remove";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import AddIcon from "@material-ui/icons/Add";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import AssignmentTurnedInOutlinedIcon from "@material-ui/icons/AssignmentTurnedInOutlined";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import LocalOfferOutlinedIcon from "@material-ui/icons/LocalOfferOutlined";
+import LocalShippingOutlinedIcon from "@material-ui/icons/LocalShippingOutlined";
+import RemoveIcon from "@material-ui/icons/Remove";
 import StarOutlineRoundedIcon from "@material-ui/icons/StarOutlineRounded";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
-import LocalShippingOutlinedIcon from "@material-ui/icons/LocalShippingOutlined";
-import AssignmentTurnedInOutlinedIcon from "@material-ui/icons/AssignmentTurnedInOutlined";
-import LocalOfferOutlinedIcon from "@material-ui/icons/LocalOfferOutlined";
 //Snackbar
 import { useSnackbar } from "notistack";
+import React, { useEffect, useRef, useState } from "react";
 //LazyLoading
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
 //
 import foodApi from "../../../Api/foodApi";
 import DetailBanner from "../../../components/DetailBanner";
+import Footer from "../../../components/Footer";
 import LoginDiaLog from "../../../components/LoginDialog";
 import CartFeature from "../../CartFeature";
-import { addToCart, changeCount, decreaseCount, increateCount, addToFavortite } from "../foodSlice";
-import "./DetailPage.scss";
-import Footer from "../../../components/Footer";
 import FavoriteFeature from "../../FavoriteFeature";
-import DetailTabMenu from "../components/detailTab/DetailTabMenu";
 import CommentTab from "../components/detailTab/CommentTab";
 import DescriptionTab from "../components/detailTab/DescriptionTab";
-import { useHistory } from "react-router-dom";
+import DetailTab from "../components/detailTab/DetailTab";
+import DetailTabMenu from "../components/detailTab/DetailTabMenu";
 import RelatedProducts from "../components/detailTab/RelatedProducts";
+import { addToCart, addToFavortite, changeCount, decreaseCount, increateCount } from "../foodSlice";
+import "./DetailPage.scss";
 
 function DetailPage(props) {
     const location = useLocation();
@@ -68,7 +68,7 @@ function DetailPage(props) {
         dispatch(changeCount(Number.parseInt(event.target.value)));
         setValue(event.target.value);
     };
-    //thay đổi giá trị khi count thay đôi
+    //thay đổi giá trị khi tăng giảm count
     const count = useSelector((state) => state.food.count);
     const dispatch = useDispatch();
     const handleDecreateCount = () => {
@@ -133,8 +133,6 @@ function DetailPage(props) {
             autoHideDuration: 3000,
         });
     };
-    
-    
     const openFavorite = useSelector((state) => state.food.openFavorite);
     return (
         <>
@@ -298,6 +296,7 @@ function DetailPage(props) {
                 </Container>
                 <div className="detail-content__tab">
                     <DetailTabMenu />
+                    {/* <DetailTab/> */}
                 </div>
                 <Switch>
                     <Route path={`${url}/comment`}>

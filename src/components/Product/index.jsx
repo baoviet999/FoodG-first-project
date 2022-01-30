@@ -19,7 +19,11 @@ import { addToCart, addToFavortite } from "../../feartures/Foodfeature/foodSlice
 import { GridContext } from "../../feartures/Foodfeature/GridContext";
 //Scss
 import "./styles.scss";
+import { useSelector } from "react-redux";
+//Toast
+import { ToastContainer, toast } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 Product.propTypes = {
     food: PropTypes.object,
     type: PropTypes.string,
@@ -29,7 +33,8 @@ function Product({ food = {}, type = "" }) {
     const history = useHistory();
     const dispatch = useDispatch();
     const style = useContext(GridContext);
-    
+    const userLogin = useSelector((state) => state.user.current);
+    const isLogin = !!userLogin.displayName;
     //sang trang detail
     const handleClick = () => {
         history.push(`/detail${type}/${food.id}`);
@@ -39,30 +44,54 @@ function Product({ food = {}, type = "" }) {
     //Add sản phẩm vào redux
     const handleClickAdd = (e) => {
         e.stopPropagation();
-        dispatch(
-            addToCart({
-                id: food.id,
-                foodProduct: food,
-                quantity: 1,
-            })
-        );
-        enqueueSnackbar(`[${food.name} x ${1}] has been added to cart`, {
-            variant: "success",
-            autoHideDuration: 3000,
-        });
+        if (isLogin) {
+            dispatch(
+                addToCart({
+                    id: food.id,
+                    foodProduct: food,
+                    quantity: 1,
+                })
+            );
+            enqueueSnackbar(`[${food.name} x ${1}] has been added to cart`, {
+                variant: "success",
+                autoHideDuration: 3000,
+            });
+        } else {
+            enqueueSnackbar(`Please SignIn to use this feature!`, {
+                variant: "warning",
+                autoHideDuration: 3000,
+            });
+        }
     };
     //add vao favorite
     const handleFavorite = (e) => {
-        e.stopPropagation()
-        dispatch(addToFavortite({
-            id: food.id,
-            foodProduct :food
-        }))
-         enqueueSnackbar(`[${food.name}] has been added to wish list`, {
-             variant: "success",
-             autoHideDuration: 3000,
-         });
-    }
+        e.stopPropagation();
+        if (isLogin) {
+            dispatch(
+                addToFavortite({
+                    id: food.id,
+                    foodProduct: food,
+                })
+            );
+            enqueueSnackbar(`[${food.name}] has been added to wish list`, {
+                variant: "success",
+                autoHideDuration: 3000,
+            });
+            // toast("See you later💙", {
+            //     position: toast.POSITION.TOP_CENTER,
+            //     autoClose: 2000,
+            //     type: "info",
+            //     theme: "colored",
+            //     pauseOnFocusLoss: false,
+            //     limit: 3,
+            // });
+        } else {
+            enqueueSnackbar(`Please SignIn to use this feature!`, {
+                variant: "warning",
+                autoHideDuration: 3000,
+            });
+        }
+    };
     return (
         <div className={`food-product ${style.style}`} onClick={handleClick}>
             <div className="food-product__img-wrap">

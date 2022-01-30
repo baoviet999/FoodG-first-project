@@ -13,6 +13,7 @@ const userSlice = createSlice({
         },
         logout(state, action) {
             localStorage.removeItem('user')
+            localStorage.removeItem("carts");
             state.current = {}
         }
     }

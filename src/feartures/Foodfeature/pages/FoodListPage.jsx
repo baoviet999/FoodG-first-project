@@ -21,7 +21,7 @@ import "./FoodListPage.scss";
 
 function FoodListPage(props) {
     const dispatch = useDispatch();
-    
+
     const [foodList, setFoodList] = useState([]);
     const [filter, setFilter] = useState({
         _page: 1,
@@ -57,6 +57,7 @@ function FoodListPage(props) {
         setFilter({
             ...filter,
             name_like: "",
+            _page : 1
         });
         dispatch(changeType(type));
     };
@@ -101,7 +102,7 @@ function FoodListPage(props) {
             <Container>
                 <div className="food__wrap container">
                     <Grid container>
-                        <Grid item xs='auto' md={2}>
+                        <Grid item xs="auto" md={2}>
                             <div className="food-filter">
                                 <div className="food-filter__title">
                                     <h2>Popular</h2>
@@ -118,7 +119,7 @@ function FoodListPage(props) {
                             </div>
                         </Grid>
 
-                        <Grid item  xs={12} md={10} className="food-product__container">
+                        <Grid item xs={12} md={10} className="food-product__container">
                             <div className="food-product__feature">
                                 <SearchProduct onSearch={handleSearch} />
                                 <GridSetting />
@@ -127,11 +128,19 @@ function FoodListPage(props) {
                                 <>
                                     <ProductList loading={loading} foodList={foodList} type={type} />
                                     <div className="food-product__pagination">
-                                        <ProductPagination onChange={handleChange} active={"best-foods"} />
+                                        <ProductPagination
+                                            onChange={handleChange}
+                                            active={"best-foods"}
+                                            limit={filter._page}
+                                        />
                                     </div>
                                 </>
                             ) : (
-                                    <FoodEmty width={'500px'} fz={'25px'} content={ `No product you're looking for`}/>
+                                <FoodEmty
+                                    width={"500px"}
+                                    fz={"25px"}
+                                    content={`No product you're looking for`}
+                                />
                             )}
                         </Grid>
                     </Grid>

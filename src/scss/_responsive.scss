@@ -9,15 +9,4 @@
       @content;
     }
   }
-
-  // @if $breakpoint == mobile {
-  //   @media (max-width: 960px) {
-  //     @content;
-  //   }
-  // }
-  // @if $breakpoint == desktop {
-  //   @media (min-width: 960px) {
-  //     @content;
-  //   }
-  // }
 }

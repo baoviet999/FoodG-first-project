@@ -11,7 +11,7 @@ const priceOptions = [
     { title: "Above $100", price: { price_gte: 100, price_lte: 1000 } },
 ];
 function PriceFilter({onClickPrice = null}) {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState('All price');
 
     const handleChange = (event) => {
         if (!onClickPrice) return;

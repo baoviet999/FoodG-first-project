@@ -25,5 +25,4 @@ function GridSetting(props) {
         </div>
     );
 }
-
 export default GridSetting;

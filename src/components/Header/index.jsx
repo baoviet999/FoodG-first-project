@@ -13,12 +13,14 @@ import LoyaltyIcon from "@material-ui/icons/Loyalty";
 import RedeemIcon from "@material-ui/icons/Redeem";
 import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
+import { ToastContainer, toast } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 //SnackBar
 import { useSnackbar } from "notistack";
 
 import logo from "../../assets/svg/logo.svg";
-import { openCart, openFavorite } from "../../feartures/Foodfeature/foodSlice";
+import { logoutCart, openCart, openFavorite } from "../../feartures/Foodfeature/foodSlice";
 import { cartItemCountSelector } from "../../feartures/Foodfeature/selector";
 import { logout } from "../../Pages/Login/userSlice";
 
@@ -64,9 +66,15 @@ function Header(props) {
     const { enqueueSnackbar } = useSnackbar();
     const handleLogout = () => {
         dispatch(logout());
-        enqueueSnackbar(" See You Later 💙", {
-            variant: "success",
-            autoHideDuration: 3000,
+        dispatch(logoutCart());
+        // enqueueSnackbar(" See You Later 💙", {
+        //     variant: "success",
+        //     autoHideDuration: 3000,
+        // });
+        toast("See you later💙", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: '2000',
+            
         });
     };
     //Lây tổng số lượng sản phẩm từ createSelector
@@ -77,7 +85,6 @@ function Header(props) {
 
     return (
         <>
-                      
             {header && (
                 <div ref={headerRef} className="navbar">
                     <div className="navbar__wrap container">
@@ -123,7 +130,10 @@ function Header(props) {
                                                 <AssignmentIndIcon />
                                                 <span>My account</span>
                                             </li>
-                                            <li className="navbar__user--logout-option" onClick={()=> dispatch(openFavorite())}>
+                                            <li
+                                                className="navbar__user--logout-option"
+                                                onClick={() => dispatch(openFavorite())}
+                                            >
                                                 <LoyaltyIcon />
                                                 <span>My wishlist</span>
                                             </li>

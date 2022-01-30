@@ -5,7 +5,7 @@ const foodSlice = createSlice({
     initialState: {
         count: 1,
         type: "/best-foods",
-        cartItems: [],
+        cartItems:  [],
         favoriteItem: [],
         openCart: false,
         openFavorite: false,
@@ -33,6 +33,9 @@ const foodSlice = createSlice({
                 state.cartItems.push(newItem);
             }
         },
+        reloadCart(state) {
+            localStorage.setItem("carts", JSON.stringify(state.cartItems));
+        },
         removeFromCart(state, action) {
             const id = action.payload;
             const deleteId = state.cartItems.findIndex((x) => x.id === id);
@@ -51,6 +54,9 @@ const foodSlice = createSlice({
             if (hasFavorite < 0) {
                 state.favoriteItem.push(newFavorite);
             }
+        },
+        logoutCart(state) {
+            state.cartItems = []
         },
         removeFromFavorite(state, action) {
             const itemDelete = action.payload;
@@ -80,4 +86,5 @@ export const {
     openFavorite,
     closeFavorite,
     removeFromFavorite,
+    logoutCart,
 } = actions;

@@ -15,7 +15,6 @@ function ProductPagination({ onChange }) {
         fetchPagination()
     },[])
     const handleChange = (e, value) => {
-        console.log(value);
         if (onChange) {
             onChange(value)
         }

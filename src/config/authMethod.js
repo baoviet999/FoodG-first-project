@@ -3,4 +3,4 @@ import firebase from './firebase-config'
 
 export const facebookProvider =new FacebookAuthProvider();
 export const githubProvider =new GithubAuthProvider();
-export const googleProvider =new GoogleAuthProvider();
+export const googleProvider = new GoogleAuthProvider();

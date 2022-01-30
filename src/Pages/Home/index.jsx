@@ -11,7 +11,8 @@ import FoodListPage from '../../feartures/Foodfeature/pages/FoodListPage';
 import CategorySlice from './Components/CategorySlide';
 import UserPreview from './Components/UserPreview';
 import Works from './Components/Works';
-
+import MenuPreview from './Components/MenuPreview'
+import ReactToas from '../../components/ReactToast';
 function Home(props) {
     const openCart = useSelector(state => state.food.openCart)
     const openFavorite = useSelector((state) => state.food.openFavorite);
@@ -21,11 +22,13 @@ function Home(props) {
             {openCart && <CartFeature />}
             <BannerSilde />
             <ButtonToTop />
+            <ReactToas/>
             <Works />
             <CategorySlice />
+            <MenuPreview />
             <FoodListPage />
             <UserPreview />
-            <Footer/>
+            <Footer />
         </div>
     );
 }
