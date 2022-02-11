@@ -49,7 +49,6 @@ const foodSlice = createSlice({
         },
         addToFavortite(state, action) {
             const newFavorite = action.payload;
-            console.log(newFavorite);
             const hasFavorite = state.favoriteItem.findIndex((x) => x.id === newFavorite.id);
             if (hasFavorite < 0) {
                 state.favoriteItem.push(newFavorite);

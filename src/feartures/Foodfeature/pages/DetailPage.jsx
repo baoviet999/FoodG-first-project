@@ -85,7 +85,7 @@ function DetailPage(props) {
     const foodId = math.params.foodId;
     const foodidRef = useRef();
     
-    // nếu 2 id sản phẩm khác nhau thì rết lại count
+    // nếu 2 id sản phẩm khác nhau thì set lại count
     useEffect(() => {
         foodidRef.current = foodId;
     }, [foodId]);
@@ -134,6 +134,8 @@ function DetailPage(props) {
         });
     };
     const openFavorite = useSelector((state) => state.food.openFavorite);
+    const products = useSelector((state) => state.food.favoriteItem);
+    const isFavorite = products.some((product) => product.id === foodProduct.id);
     return (
         <>
             {openFavorite && <FavoriteFeature />}
@@ -267,7 +269,7 @@ function DetailPage(props) {
                                             </Button>
                                         </div>
                                         <div
-                                            className="detail-content__addtocart--like"
+                                            className={`detail-content__addtocart--like ${isFavorite ? 'active' : ''}`}
                                             onClick={handleFavorite}
                                         >
                                             <IconButton>
@@ -306,8 +308,8 @@ function DetailPage(props) {
                         <DescriptionTab />
                     </Route>
                 </Switch>
-                
-                <RelatedProducts/>
+
+                <RelatedProducts />
             </div>
             <Footer />
         </>

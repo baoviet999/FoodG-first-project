@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
+import { useRef } from "react";
 MenuPreview.propTypes = {};
 const menu1 = [
     {
@@ -37,9 +38,30 @@ const menu2 = [
     },
 ];
 function MenuPreview(props) {
+    const leftRef = useRef()
+    const rightRef = useRef()
+    useEffect(() => {
+        window.addEventListener('scroll', animation)
+        animation()
+        function animation() {
+            const triggerBottom = (window.innerHeight / 5) * 4
+            const triggerTop = leftRef.current.getBoundingClientRect().top
+            if (triggerTop < triggerBottom) {
+                leftRef.current.classList.add('active')
+                rightRef.current.classList.add('active')
+            } else {
+                leftRef.current.classList.remove("active");
+                rightRef.current.classList.remove("active");
+            }
+            
+        }
+        return () => window.removeEventListener('scroll', animation)
+    },[])
+
+
     return (
         <div className="menu-preview">
-            <div className="menu-preview__left">
+            <div ref={leftRef} className="menu-preview__left">
                 {menu1.map((menu) => (
                     <div key={menu.id} className="menu-preview__item menu-preview__item--left">
                         <h3>{menu.name}</h3>
@@ -48,7 +70,7 @@ function MenuPreview(props) {
                     </div>
                 ))}
             </div>
-            <div className="menu-preview__right">
+            <div ref={rightRef} className="menu-preview__right">
                 {menu2.map((menu) => (
                     <div key={menu.id} className="menu-preview__item menu-preview__item--right">
                         <h3>{menu.name}</h3>

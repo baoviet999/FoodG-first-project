@@ -1,4 +1,4 @@
-@use './scss' as * ;
+@use "./scss" as *;
 @import url("https://fonts.googleapis.com/css2?family=Comforter&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 * {
     padding: 0;
@@ -16,19 +16,18 @@ body {
     background-color: #fff;
     color: $txt-color;
     width: 100%;
-    
+    scroll-behavior: smooth;
 }
 a {
     text-decoration: none;
     color: unset;
     transition: all 0.2s ease;
 }
-svg{
+svg {
     transition: all 0.2s ease;
-    cursor : pointer;
+    cursor: pointer;
 }
 @media (hover: hover) {
-    
 }
 button,
 input {
@@ -43,21 +42,20 @@ img {
 }
 .container {
     max-width: 1150px;
-    margin:0 auto;
+    margin: 0 auto;
 }
-
 
 ::-webkit-scrollbar {
-  width: 13px;
-  background-color: $scrollbar-background-color;
+    width: 13px;
+    background-color: $scrollbar-background-color;
 }
 ::-webkit-scrollbar-track {
-  margin: 3px 0;
+    margin: 3px 0;
 }
 ::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-  background-color: $scrollbar-color;
-  background-clip: content-box;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    background-color: $scrollbar-color;
+    background-clip: content-box;
 }

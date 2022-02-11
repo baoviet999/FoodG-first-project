@@ -35,8 +35,13 @@
     background-color: #ff514e !important;
     color: #fff !important;
 }
-
+.food{
+    margin : 100px 0 ;
+}
 .food-filter {
+    @include respond(mobile) {
+        display: none;
+    }
     &__title {
         h2 {
             font-size: 20px;

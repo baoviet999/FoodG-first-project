@@ -1,8 +1,4 @@
 //react
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
-
 //Meterial Icon
 import { Avatar, Badge, Typography } from "@material-ui/core";
 import { Home } from "@material-ui/icons";
@@ -13,22 +9,43 @@ import LoyaltyIcon from "@material-ui/icons/Loyalty";
 import RedeemIcon from "@material-ui/icons/Redeem";
 import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
-import { ToastContainer, toast } from "react-toastify";
-
-import "react-toastify/dist/ReactToastify.css";
 //SnackBar
 import { useSnackbar } from "notistack";
-
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+//Scss
+import "../../App.scss";
 import logo from "../../assets/svg/logo.svg";
 import { logoutCart, openCart, openFavorite } from "../../feartures/Foodfeature/foodSlice";
 import { cartItemCountSelector } from "../../feartures/Foodfeature/selector";
 import { logout } from "../../Pages/Login/userSlice";
-
-//Scss
-import "../../App.scss";
 import "./style.scss";
 
 function Header(props) {
+    const [blur, setBlur] = useState(0);
+    useEffect(() => {
+        let int = setInterval(blurring, 10);
+        function blurring() {
+            setBlur((prev) => {
+                if (prev > 99) {
+                    clearInterval(int);
+                    return 100;
+                } else {
+                    document.getElementsByTagName("body")[0].style.filter = `blur(${scale(prev , 0, 100, 30 , 0)}px)`
+                    // console.log(document.getElementsByTagName('body'))
+                    return prev + 1;
+                }
+            });
+        }
+        function scale(number, inMin, inMax, outMin, outMax) {
+            return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+        }
+        return () => clearInterval(int);
+    }, []);
+
     const dispatch = useDispatch();
     const location = useLocation();
     const headerRef = useRef();
@@ -73,8 +90,7 @@ function Header(props) {
         // });
         toast("See you later💙", {
             position: toast.POSITION.TOP_CENTER,
-            autoClose: '2000',
-            
+            autoClose: "2000",
         });
     };
     //Lây tổng số lượng sản phẩm từ createSelector

@@ -27,18 +27,19 @@ function Login(props) {
     const handleClickClose = () => {
         history.push("/");
     };
-    const dispath = useDispatch();
+    const dispatch = useDispatch();
     const handleOnClick = async (provider) => {
         await signInWithPopup(authentication, provider)
             .then((res) => {
                 const { user } = res
                 const action = login(user)
-                dispath(action)
+                dispatch(action)
+                history.push("/");
             })
             .catch((err) => {
                 console.log(err.message);
             });
-        history.push("/");
+        
     };
 
     return (

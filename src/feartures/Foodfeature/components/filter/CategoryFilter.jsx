@@ -1,5 +1,5 @@
 //React
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 //Svg
 import { Bread, Burger, Drinks, Pizza, Sandwich } from "../../../../utils/categorySvg";
@@ -39,7 +39,7 @@ function CategoryFilter({ onClickFilter = null, active }) {
             type: "/pizzas",
         },
     ];
-    
+
     const history = useHistory();
     const activeUrl = history.location.search;
     const newActiveUrl = activeUrl.split("+")[1];

@@ -37,8 +37,8 @@ function LoginForm() {
             password: "",
         });
         const name = values.email
-        enqueueSnackbar(`Hi ${name}
-          This feature is current close! please try to login with facebook or google`, {
+        enqueueSnackbar(`Hi ${name}This feature is current close! please try to login with facebook or google`,
+        {
             variant: "success",
             autoHideDuration: 4000,
         });

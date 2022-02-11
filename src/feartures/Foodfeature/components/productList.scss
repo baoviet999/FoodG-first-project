@@ -3,14 +3,10 @@
         width: 60px;
         height: 60px;
     }
-    .food-product__progress-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 }
 .MuiContainer-root.food-product__progress-wrapper.MuiContainer-maxWidthLg {
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
+    height: 500px;
 }

@@ -33,5 +33,5 @@ function ProductList({ foodList, loading, type }) {
         </Box>
     );
 }
-
 export default ProductList;
+

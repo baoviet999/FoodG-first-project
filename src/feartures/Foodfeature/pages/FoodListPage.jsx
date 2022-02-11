@@ -102,7 +102,7 @@ function FoodListPage(props) {
             <Container>
                 <div className="food__wrap container">
                     <Grid container>
-                        <Grid item xs="auto" md={2}>
+                        <Grid item xs={12} sm={3} md={2}>
                             <div className="food-filter">
                                 <div className="food-filter__title">
                                     <h2>Popular</h2>
@@ -119,7 +119,7 @@ function FoodListPage(props) {
                             </div>
                         </Grid>
 
-                        <Grid item xs={12} md={10} className="food-product__container">
+                        <Grid item xs={12} sm={9} md={10} className="food-product__container">
                             <div className="food-product__feature">
                                 <SearchProduct onSearch={handleSearch} />
                                 <GridSetting />
