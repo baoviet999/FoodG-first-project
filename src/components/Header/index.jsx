@@ -25,26 +25,26 @@ import { logout } from "../../Pages/Login/userSlice";
 import "./style.scss";
 
 function Header(props) {
-    const [blur, setBlur] = useState(0);
-    useEffect(() => {
-        let int = setInterval(blurring, 10);
-        function blurring() {
-            setBlur((prev) => {
-                if (prev > 99) {
-                    clearInterval(int);
-                    return 100;
-                } else {
-                    document.getElementsByTagName("body")[0].style.filter = `blur(${scale(prev , 0, 100, 30 , 0)}px)`
-                    // console.log(document.getElementsByTagName('body'))
-                    return prev + 1;
-                }
-            });
-        }
-        function scale(number, inMin, inMax, outMin, outMax) {
-            return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-        }
-        return () => clearInterval(int);
-    }, []);
+    // const [blur, setBlur] = useState(0);
+    // useEffect(() => {
+    //     let int = setInterval(blurring, 10);
+    //     function blurring() {
+    //         setBlur((prev) => {
+    //             if (prev > 99) {
+    //                 clearInterval(int);
+    //                 return 100;
+    //             } else {
+    //                 document.getElementsByTagName("body")[0].style.filter = `blur(${scale(prev , 0, 100, 30 , 0)}px)`
+    //                 // console.log(document.getElementsByTagName('body'))
+    //                 return prev + 1;
+    //             }
+    //         });
+    //     }
+    //     function scale(number, inMin, inMax, outMin, outMax) {
+    //         return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+    //     }
+    //     return () => clearInterval(int);
+    // }, []);
 
     const dispatch = useDispatch();
     const location = useLocation();

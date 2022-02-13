@@ -62,8 +62,8 @@ function MenuPreview(props) {
     return (
         <div className="menu-preview">
             <div ref={leftRef} className="menu-preview__left">
-                {menu1.map((menu) => (
-                    <div key={menu.id} className="menu-preview__item menu-preview__item--left">
+                {menu1.map((menu, index) => (
+                    <div key={index} className="menu-preview__item menu-preview__item--left">
                         <h3>{menu.name}</h3>
                         <p>{menu.detail}</p>
                         <span>{menu.num}</span>
@@ -71,8 +71,8 @@ function MenuPreview(props) {
                 ))}
             </div>
             <div ref={rightRef} className="menu-preview__right">
-                {menu2.map((menu) => (
-                    <div key={menu.id} className="menu-preview__item menu-preview__item--right">
+                {menu2.map((menu, index) => (
+                    <div key={index} className="menu-preview__item menu-preview__item--right">
                         <h3>{menu.name}</h3>
                         <p>{menu.detail}</p>
                         <span>{menu.num}</span>
