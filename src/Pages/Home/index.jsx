@@ -29,7 +29,7 @@ function Home(props) {
             <Analysis/>
             <UserPreview />
             <FoodListPage />
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 }
