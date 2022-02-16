@@ -19,13 +19,9 @@ function CategorySlice(props) {
                 <div className="category__cart">
                     <Swiper
                         spaceBetween={0}
-                        slidesPerView={2}
+                        slidesPerView={5}
                         loop
                         loopFillGroupWithBlank={true}
-                        autoplay={{
-                            delay: 1800,
-                            disableOnInteraction: false,
-                        }}
                         breakpoints={{
                             600: {
                                 slidesPerView: 4,
@@ -33,10 +29,6 @@ function CategorySlice(props) {
                             960: {
                                 slidesPerView: 7,
                             },
-                        }}
-                        navigation={{
-                            prevEl: ".category__btn--left",
-                            nextEl: ".category__btn--right",
                         }}
                         grabCursor={true}
                     >
