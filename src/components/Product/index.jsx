@@ -102,7 +102,7 @@ function Product({ food = {}, type = "" }) {
                     alt={food.name}
                     width="100%"
                     height="100%"
-                ></LazyLoadImage>
+                />
                 <div className="food-product__rate">
                     <StarIcon />
                     <span>{food.rate}</span>
@@ -137,3 +137,4 @@ function Product({ food = {}, type = "" }) {
 }
 
 export default Product;
+

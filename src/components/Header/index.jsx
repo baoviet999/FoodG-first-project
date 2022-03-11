@@ -67,6 +67,7 @@ function Header(props) {
 
     //Set Header hide at login page
     const [header, setHideHeader] = useState(true);
+    
     useEffect(() => {
         if (location.pathname === "/login") {
             setHideHeader(false);
