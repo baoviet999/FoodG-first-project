@@ -12,6 +12,7 @@ import authentication from "../../config/firebase-config";
 import LoginForm from "./components/LoginForm";
 import "./styles.scss";
 import { login } from "./userSlice";
+import { FcGoogle } from "react-icons/fc";
 
 Login.propTypes = {};
 
@@ -39,7 +40,6 @@ function Login(props) {
             .catch((err) => {
                 console.log(err.message);
             });
-        
     };
 
     return (
@@ -77,7 +77,7 @@ function Login(props) {
                                         variant="contained"
                                         onClick={() => handleOnClick(googleProvider)}
                                     >
-                                        <FacebookIcon />
+                                        <FcGoogle />
                                         Login with Google
                                     </Button>
                                 </div>

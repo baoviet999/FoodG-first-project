@@ -9,8 +9,6 @@ import LoyaltyIcon from "@material-ui/icons/Loyalty";
 import RedeemIcon from "@material-ui/icons/Redeem";
 import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
-//SnackBar
-import { useSnackbar } from "notistack";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -81,7 +79,7 @@ function Header(props) {
     const isLogin = !!userLogin.displayName;
 
     //Logout Handle
-    const { enqueueSnackbar } = useSnackbar();
+    // const { enqueueSnackbar } = useSnackbar();
     const handleLogout = () => {
         dispatch(logout());
         dispatch(logoutCart());

@@ -1,8 +1,6 @@
 import React from "react";
-import "./FlashSceen.scss";
 import foodScreen from "../../assets/img/Home/food.gif";
-import { css } from "@emotion/react";
-import SyncLoader from "react-spinners/SyncLoader";
+import "./FlashSceen.scss";
 const FlashScreen = () => {
     return (
         <div className="flashsceen">

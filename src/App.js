@@ -12,13 +12,13 @@ import Login from "./Pages/Login";
 import OrderPage from "./Pages/Order";
 function App() {
     const type = useSelector((state) => state.food.type);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const timer = setTimeout(() => {
-            setLoading(false)
-        }, 2000)
-        return ()=> clearTimeout(timer)
-    },[])
+            setLoading(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <>
             {loading ? (
